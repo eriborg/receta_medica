@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
 
-# from tkinter.messagebox import *
+# Instalar tkcalendar: pip install tkcalendar
 from tkcalendar import Calendar, DateEntry
 from datetime import datetime, date
 import sqlite3 as sql
