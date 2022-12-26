@@ -7,6 +7,8 @@ La aplicación permite ingresar los datos de médico y paciente, así como el di
 
 Los campos de información deben ser ingresados por el usuario médico (mediante tipeo, selección en opciones dadas, o calendario de fechas), excepto por la edad del paciente que es un campo calculado o el campo de fecha de prescripción que toma la fecha del día de hoy.
 
+![Pantalla](./screenshot.png)
+
 ## FUNCIONAMIENTO
 
 #### Versión de Python
