@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modulo vista &mdash; documentación de MiProyecto - 0.0.1</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="modulo receta_medica" href="receta_medica.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MiProyecto
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme_link.html">Sobre el Proyecto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">modulo controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crud_receta_medica.html">modulo crud_receta_medica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="receta_medica.html">modulo receta_medica</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">modulo vista</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vista.MainWindow"><code class="docutils literal notranslate"><span class="pre">MainWindow</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vista.MainWindow.click_con"><code class="docutils literal notranslate"><span class="pre">MainWindow.click_con()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista.MainWindow.on_focusout_con"><code class="docutils literal notranslate"><span class="pre">MainWindow.on_focusout_con()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista.MainWindow.on_focusout_fnac"><code class="docutils literal notranslate"><span class="pre">MainWindow.on_focusout_fnac()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista.MainWindow.vista_actualizacion"><code class="docutils literal notranslate"><span class="pre">MainWindow.vista_actualizacion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista.MainWindow.vista_alta"><code class="docutils literal notranslate"><span class="pre">MainWindow.vista_alta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista.MainWindow.vista_baja"><code class="docutils literal notranslate"><span class="pre">MainWindow.vista_baja()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista.MainWindow.vista_cancelar"><code class="docutils literal notranslate"><span class="pre">MainWindow.vista_cancelar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista.MainWindow.vista_consulta"><code class="docutils literal notranslate"><span class="pre">MainWindow.vista_consulta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista.MainWindow.vista_modicacion"><code class="docutils literal notranslate"><span class="pre">MainWindow.vista_modicacion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vista.MainWindow.vista_tv"><code class="docutils literal notranslate"><span class="pre">MainWindow.vista_tv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MiProyecto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">modulo vista</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/vista.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-vista">
+<span id="modulo-vista"></span><h1>modulo vista<a class="headerlink" href="#module-vista" title="Enlace permanente a este encabezado"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="vista.MainWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vista.</span></span><span class="sig-name descname"><span class="pre">MainWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_window</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.MainWindow.click_con">
+<span class="sig-name descname"><span class="pre">click_con</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow.click_con"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow.click_con" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Evento que al hacer click en el campo consulta No  se muestra el texto «Ingrese Nombre del Paciente…»</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> – on click</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.MainWindow.on_focusout_con">
+<span class="sig-name descname"><span class="pre">on_focusout_con</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow.on_focusout_con"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow.on_focusout_con" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Evento que al salir del foco del campo consulta se muestra el texto «Ingrese Nombre del Paciente…»</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> – on focus out</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.MainWindow.on_focusout_fnac">
+<span class="sig-name descname"><span class="pre">on_focusout_fnac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow.on_focusout_fnac"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow.on_focusout_fnac" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Evento que al salir del foco del campo fecha Nacimiento se calcula la edad del paciente</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> – on focus out</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.MainWindow.vista_actualizacion">
+<span class="sig-name descname"><span class="pre">vista_actualizacion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow.vista_actualizacion"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow.vista_actualizacion" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Vista Actualización: ejecuta el método de actualizar_prescripcion para modificar los datos de una receta médica existente 
+a partir de los datos ingresados por el usuario</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.MainWindow.vista_alta">
+<span class="sig-name descname"><span class="pre">vista_alta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow.vista_alta"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow.vista_alta" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Vista Alta de una receta electrónica</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.MainWindow.vista_baja">
+<span class="sig-name descname"><span class="pre">vista_baja</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow.vista_baja"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow.vista_baja" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Vista Baja: ejecuta el método de eliminar_prescripcion para eliminar una receta a partir
+de la fila seleccionada por el usuario en la treeview</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.MainWindow.vista_cancelar">
+<span class="sig-name descname"><span class="pre">vista_cancelar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow.vista_cancelar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow.vista_cancelar" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Vista CANCELAR: cancela la operación que se estaba intentando hacer ya sea de crear o actualizar una receta</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.MainWindow.vista_consulta">
+<span class="sig-name descname"><span class="pre">vista_consulta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow.vista_consulta"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow.vista_consulta" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Vista Consulta: ejecuta el método de actualizar_treeview para filtrar por paciente las recetas que
+se le hayan prescripto</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.MainWindow.vista_modicacion">
+<span class="sig-name descname"><span class="pre">vista_modicacion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow.vista_modicacion"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow.vista_modicacion" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Vista Modificación: muestra los datos en pantalla para su modificación a partir de la selección de una receta</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.MainWindow.vista_tv">
+<span class="sig-name descname"><span class="pre">vista_tv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/vista.html#MainWindow.vista_tv"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#vista.MainWindow.vista_tv" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Vista de actualización del Treeview de TKinter</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="receta_medica.html" class="btn btn-neutral float-left" title="modulo receta_medica" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Erica Borgeat.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

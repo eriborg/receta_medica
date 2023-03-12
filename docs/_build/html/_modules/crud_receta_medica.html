@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>crud_receta_medica &mdash; documentación de MiProyecto - 0.0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MiProyecto
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme_link.html">Sobre el Proyecto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controlador.html">modulo controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crud_receta_medica.html">modulo crud_receta_medica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../receta_medica.html">modulo receta_medica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vista.html">modulo vista</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MiProyecto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Código de módulo</a></li>
+      <li class="breadcrumb-item active">crud_receta_medica</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para crud_receta_medica</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span> 
+<span class="kn">from</span> <span class="nn">peewee</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">peewee</span> <span class="kn">import</span> <span class="n">fn</span>
+<span class="kn">from</span> <span class="nn">receta_medica</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># ##############################################</span>
+<span class="c1"># MODELO</span>
+<span class="c1"># ##############################################</span>
+
+<div class="viewcode-block" id="CrudRecetaMedica"><a class="viewcode-back" href="../crud_receta_medica.html#crud_receta_medica.CrudRecetaMedica">[documentos]</a><span class="k">class</span> <span class="nc">CrudRecetaMedica</span><span class="p">:</span>         
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+      
+    <span class="c1"># generar_prescripcion: Alta de una receta médica</span>
+<div class="viewcode-block" id="CrudRecetaMedica.generar_prescripcion"><a class="viewcode-back" href="../crud_receta_medica.html#crud_receta_medica.CrudRecetaMedica.generar_prescripcion">[documentos]</a>    <span class="k">def</span> <span class="nf">generar_prescripcion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+        <span class="n">receta</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">,</span>
+        <span class="n">tv</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Genera o da de Alta una nueva receta médica.</span>
+<span class="sd">        </span>
+<span class="sd">            :param receta: (0= medico, 1=cal_fec_pre, 2=paciente, 3=cal_fec_nac, 4=edad,</span>
+<span class="sd">                        5=cobertura, 6=diagnostico, 7=medicamento_1, 8=medicamento_2)</span>
+<span class="sd">	    &quot;&quot;&quot;</span>
+        <span class="n">msg_error</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">medico</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">validar_prescripcion</span><span class="p">(</span><span class="n">medico</span><span class="p">,</span> <span class="s2">&quot;medico&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">msg_error</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="s2">&quot;[ALTA]&quot;</span><span class="p">)</span>            
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">paciente</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validar_prescripcion</span><span class="p">(</span><span class="n">paciente</span><span class="p">,</span> <span class="s2">&quot;paciente&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">msg_error</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="s2">&quot;[ALTA]&quot;</span><span class="p">)</span>            
+        
+        <span class="k">if</span> <span class="n">msg_error</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="p">:</span>
+            <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">msg_error</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">msg_error</span><span class="p">)</span>        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rec_med</span> <span class="o">=</span> <span class="n">RecetaMedica</span><span class="p">()</span>
+
+            <span class="n">respuesta</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askokcancel</span><span class="p">(</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Generación de Receta Médica&quot;</span><span class="p">,</span>
+                <span class="n">message</span><span class="o">=</span><span class="s2">&quot;¿Confirma los datos para Generar la Receta?&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">respuesta</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+
+                <span class="n">rec_med</span><span class="o">.</span><span class="n">medico</span> <span class="o">=</span> <span class="n">medico</span>
+                <span class="n">rec_med</span><span class="o">.</span><span class="n">f_prescripcion</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_date</span><span class="p">()</span>
+                <span class="n">rec_med</span><span class="o">.</span><span class="n">nombre_paciente</span> <span class="o">=</span> <span class="n">paciente</span>
+                <span class="n">rec_med</span><span class="o">.</span><span class="n">f_nac_pac</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">get_date</span><span class="p">()</span>
+                <span class="n">rec_med</span><span class="o">.</span><span class="n">edad</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="n">rec_med</span><span class="o">.</span><span class="n">cobertura</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">rec_med</span><span class="o">.</span><span class="n">diagnostico</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">rec_med</span><span class="o">.</span><span class="n">medicamento_1</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">rec_med</span><span class="o">.</span><span class="n">medicamento_2</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+            <span class="n">rec_med</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">actualizar_treeview</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
+
+            <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span>
+                    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Alta&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;La receta fue generada exitosamente&quot;</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="kc">True</span>    </div>
+ 
+    <span class="c1"># ACTUALIZACION DE LA TREEVIEW</span>
+<div class="viewcode-block" id="CrudRecetaMedica.actualizar_treeview"><a class="viewcode-back" href="../crud_receta_medica.html#crud_receta_medica.CrudRecetaMedica.actualizar_treeview">[documentos]</a>    <span class="k">def</span> <span class="nf">actualizar_treeview</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tv</span><span class="p">,</span> <span class="n">str_busqueda</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Actualiza la treeview de Tkinter con todas las recetas almacenadas.</span>
+<span class="sd">        </span>
+<span class="sd">            :param tv: (0= medico, 1=cal_fec_pre, 2=paciente, 3=cal_fec_nac, 4=edad,</span>
+<span class="sd">                        5=cobertura, 6=diagnostico, 7=medicamento_1, 8=medicamento_2)</span>
+<span class="sd">            :param str_busqueda: por defecto viene vacío</span>
+<span class="sd">	    &quot;&quot;&quot;</span>
+        
+        <span class="n">registros</span> <span class="o">=</span> <span class="n">tv</span><span class="o">.</span><span class="n">get_children</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">reg</span> <span class="ow">in</span> <span class="n">registros</span><span class="p">:</span>
+            <span class="n">tv</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">reg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">str_busqueda</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>       
+            <span class="n">resultados</span> <span class="o">=</span> <span class="n">RecetaMedica</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">RecetaMedica</span><span class="o">.</span><span class="n">nombre_paciente</span><span class="o">.</span><span class="n">like</span><span class="p">(</span><span class="n">str_busqueda</span><span class="p">))</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">resultados</span> <span class="o">=</span> <span class="n">RecetaMedica</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">fila</span> <span class="ow">in</span> <span class="n">resultados</span><span class="p">:</span>
+            
+            <span class="n">tv</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">text</span><span class="o">=</span><span class="n">fila</span><span class="o">.</span><span class="n">rec_med_id</span><span class="p">,</span>
+                <span class="n">values</span><span class="o">=</span><span class="p">(</span>
+                    <span class="n">fila</span><span class="o">.</span><span class="n">nombre_paciente</span><span class="p">,</span>
+                    <span class="n">fila</span><span class="o">.</span><span class="n">f_nac_pac</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">),</span>
+                    <span class="n">fila</span><span class="o">.</span><span class="n">edad</span><span class="p">,</span>
+                    <span class="n">fila</span><span class="o">.</span><span class="n">cobertura</span><span class="p">,</span>
+                    <span class="n">fila</span><span class="o">.</span><span class="n">diagnostico</span><span class="p">,</span>
+                    <span class="n">fila</span><span class="o">.</span><span class="n">f_prescripcion</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">),</span>
+                    <span class="n">fila</span><span class="o">.</span><span class="n">medicamento_1</span><span class="p">,</span>
+                    <span class="n">fila</span><span class="o">.</span><span class="n">medicamento_2</span><span class="p">,</span>
+                    <span class="n">fila</span><span class="o">.</span><span class="n">medico</span><span class="p">))</span></div>
+   
+<div class="viewcode-block" id="CrudRecetaMedica.actualizar_prescripcion"><a class="viewcode-back" href="../crud_receta_medica.html#crud_receta_medica.CrudRecetaMedica.actualizar_prescripcion">[documentos]</a>    <span class="k">def</span> <span class="nf">actualizar_prescripcion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">receta</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">tv</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Actualiza la información de una receta médica existente.</span>
+<span class="sd">        </span>
+<span class="sd">            :param receta: (0= medico, 1=cal_fec_pre, 2=paciente, 3=cal_fec_nac, 4=edad,</span>
+<span class="sd">                        5=cobertura, 6=diagnostico, 7=medicamento_1, 8=medicamento_2, 9=rec_med_id)</span>
+<span class="sd">	    &quot;&quot;&quot;</span>
+        <span class="n">msg_error</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">medico</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">validar_prescripcion</span><span class="p">(</span><span class="n">medico</span><span class="p">,</span> <span class="s2">&quot;medico&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">msg_error</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>            
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">paciente</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validar_prescripcion</span><span class="p">(</span><span class="n">paciente</span><span class="p">,</span> <span class="s2">&quot;paciente&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">msg_error</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>         
+        
+
+        <span class="k">if</span> <span class="n">msg_error</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">msg_error</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">msg_error</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">respuesta</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askokcancel</span><span class="p">(</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Actualización de datos&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;¿Confirma los cambios a realizar?&quot;</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">respuesta</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                	
+                <span class="n">actualizar</span> <span class="o">=</span><span class="n">RecetaMedica</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">medico</span> <span class="o">=</span> <span class="n">medico</span><span class="p">,</span>
+                <span class="n">f_prescripcion</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_date</span><span class="p">(),</span>
+                <span class="n">nombre_paciente</span> <span class="o">=</span> <span class="n">paciente</span><span class="p">,</span>
+                <span class="n">f_nac_pac</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">get_date</span><span class="p">(),</span>
+                <span class="n">edad</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+                <span class="n">cobertura</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                <span class="n">diagnostico</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                <span class="n">medicamento_1</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                <span class="n">medicamento_2</span> <span class="o">=</span> <span class="n">receta</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">RecetaMedica</span><span class="o">.</span><span class="n">rec_med_id</span> <span class="o">==</span> <span class="n">receta</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">())</span> 
+
+                <span class="n">actualizar</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>               
+                
+                <span class="bp">self</span><span class="o">.</span><span class="n">limpiar_campos</span><span class="p">(</span><span class="n">receta</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">actualizar_treeview</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
+
+                <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span>
+                    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Actualización&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;La receta fue actualizada exitosamente&quot;</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="CrudRecetaMedica.eliminar_prescripcion"><a class="viewcode-back" href="../crud_receta_medica.html#crud_receta_medica.CrudRecetaMedica.eliminar_prescripcion">[documentos]</a>    <span class="k">def</span> <span class="nf">eliminar_prescripcion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">tv</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            eliminar_prescripción: elimina la receta que el usuario ha seleccionado en el treeview</span>
+<span class="sd">        </span>
+<span class="sd">            :param tv: treeview)</span>
+<span class="sd">	    &quot;&quot;&quot;</span>
+        <span class="n">valor</span> <span class="o">=</span> <span class="n">tv</span><span class="o">.</span><span class="n">selection</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">respuesta</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askyesno</span><span class="p">(</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Baja de Receta Médica&quot;</span><span class="p">,</span>
+                <span class="n">message</span><span class="o">=</span><span class="s2">&quot;¿Confirma que desea eliminar la receta generada?&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">respuesta</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="n">tv</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">valor</span><span class="p">)</span>              
+                <span class="n">mi_id</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+
+                <span class="n">elim_receta</span> <span class="o">=</span> <span class="n">RecetaMedica</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">RecetaMedica</span><span class="o">.</span><span class="n">rec_med_id</span> <span class="o">==</span> <span class="n">mi_id</span><span class="p">)</span>
+                <span class="n">elim_receta</span><span class="o">.</span><span class="n">delete_instance</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">actualizar_treeview</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
+                
+                <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span>
+                    <span class="s2">&quot;Baja de Receta Médica&quot;</span><span class="p">,</span>
+                    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;¡Receta Médica eliminada exitosamente!&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">actualizar_treeview</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Atención&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;¡Debe seleccionar una receta a eliminar!&quot;</span>
+            <span class="p">)</span></div>
+
+    <span class="c1"># LIMPIAR FORMULARIO</span>
+<div class="viewcode-block" id="CrudRecetaMedica.limpiar_campos"><a class="viewcode-back" href="../crud_receta_medica.html#crud_receta_medica.CrudRecetaMedica.limpiar_campos">[documentos]</a>    <span class="k">def</span> <span class="nf">limpiar_campos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">receta</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Limpia los campos del formulario.</span>
+<span class="sd">        </span>
+<span class="sd">            :param receta: (0= medico, 1=cal_fec_pre, 2=paciente, 3=cal_fec_nac, 4=edad,</span>
+<span class="sd">                        5=cobertura, 6=diagnostico, 7=medicamento_1, 8=medicamento_2, 9=rec_med_id)</span>
+<span class="sd">	    &quot;&quot;&quot;</span>
+
+        <span class="n">hoy</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="n">receta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">receta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_date</span><span class="p">(</span><span class="n">hoy</span><span class="p">)</span>
+        <span class="n">receta</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">receta</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_date</span><span class="p">(</span><span class="n">hoy</span><span class="p">),</span>
+        <span class="n">receta</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+        <span class="n">receta</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">),</span>
+        <span class="n">receta</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">receta</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">receta</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">receta</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="CrudRecetaMedica.validar_prescripcion"><a class="viewcode-back" href="../crud_receta_medica.html#crud_receta_medica.CrudRecetaMedica.validar_prescripcion">[documentos]</a>    <span class="k">def</span> <span class="nf">validar_prescripcion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dato</span><span class="p">,</span> <span class="n">campo</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            VALIDACION REGEX: valido que los campos de paciente y médico se completen solo con texto</span>
+<span class="sd">        </span>
+<span class="sd">            :param dato: dato ingresado por el usuario del campo a validar</span>
+<span class="sd">            :param campo: nombre del campo a validar</span>
+<span class="sd">	    &quot;&quot;&quot;</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;^[A-Za-záéíóú\s]+$&quot;</span><span class="p">,</span> <span class="n">dato</span><span class="p">):</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="n">error</span> <span class="o">+</span> <span class="s2">&quot;Los datos que intenta ingresar en &quot;</span> <span class="o">+</span> <span class="n">campo</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">dato</span> <span class="o">+</span> <span class="s2">&quot; no son válidos o está vacío. &quot;</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">error</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CrudRecetaMedica.calcular_edad"><a class="viewcode-back" href="../crud_receta_medica.html#crud_receta_medica.CrudRecetaMedica.calcular_edad">[documentos]</a>    <span class="k">def</span> <span class="nf">calcular_edad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">f_nac</span><span class="p">,</span> <span class="n">f_pre</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            CALCULAR LA EDAD DEL PACIENTE: edad del paciente en la fecha en la que se realiza la receta</span>
+<span class="sd">        </span>
+<span class="sd">            :param f_nac: fecha de nacimiento del paciente</span>
+<span class="sd">            :param f_pre: fecha de la prescripción del paciente</span>
+<span class="sd">	    &quot;&quot;&quot;</span>
+
+        <span class="n">mes_pre</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f_pre</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m&quot;</span><span class="p">))</span>
+        <span class="n">dia_pre</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f_pre</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="n">mes_nac</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f_nac</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m&quot;</span><span class="p">))</span>
+        <span class="n">dia_nac</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f_nac</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="n">anio_nac</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f_nac</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">))</span>
+        <span class="n">anio_pre</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f_pre</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">anio_nac</span> <span class="o">&gt;=</span> <span class="n">anio_pre</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">mes_nac</span> <span class="o">&lt;</span> <span class="n">mes_pre</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">anio_pre</span> <span class="o">-</span> <span class="n">anio_nac</span>
+        <span class="k">elif</span> <span class="n">dia_nac</span> <span class="o">&lt;=</span> <span class="n">dia_pre</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">anio_pre</span> <span class="o">-</span> <span class="n">anio_nac</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">anio_pre</span> <span class="o">-</span> <span class="n">anio_nac</span> <span class="o">-</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="CrudRecetaMedica.log_text"><a class="viewcode-back" href="../crud_receta_medica.html#crud_receta_medica.CrudRecetaMedica.log_text">[documentos]</a>    <span class="k">def</span> <span class="nf">log_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt_error</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">trans</span><span class="o">=</span><span class="s2">&quot;[MODIFICACION]&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Log de errores: se registra los errores que se ingresaron en los campos de medico y paciente </span>
+<span class="sd">        </span>
+<span class="sd">            :param txt_error: mensaje de error</span>
+<span class="sd">            :param trans: transacción desde donde se detecta el error</span>
+<span class="sd">	    &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ahora</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="n">str_ahora</span> <span class="o">=</span> <span class="n">ahora</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y %H:%M:%S&#39;</span><span class="p">)</span>                 
+            <span class="n">archivo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./logs/log_app.txt&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="n">archivo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">str_ahora</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span><span class="n">trans</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">txt_error</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">archivo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">te</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solo se puede pasar un texto!&quot;</span><span class="p">)</span>   </div></div>
+
+        
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Erica Borgeat.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

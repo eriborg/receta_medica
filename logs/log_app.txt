@@ -1,0 +1,1 @@
+13/03/2023 00:30:36 - [ALTA] Error: '' en el campo paciente no es válido o está vacío. 

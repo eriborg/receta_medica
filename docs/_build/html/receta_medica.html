@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modulo receta_medica &mdash; documentación de MiProyecto - 0.0.1</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="vista module" href="vista.html" />
+    <link rel="prev" title="crud_receta_medica module" href="crud_receta_medica.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MiProyecto
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme_link.html">Sobre el Proyecto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">controlador module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crud_receta_medica.html">crud_receta_medica module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">modulo receta_medica</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#receta_medica.BaseModel"><code class="docutils literal notranslate"><span class="pre">BaseModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.BaseModel.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">BaseModel.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.BaseModel.id"><code class="docutils literal notranslate"><span class="pre">BaseModel.id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#receta_medica.RecetaMedica"><code class="docutils literal notranslate"><span class="pre">RecetaMedica</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.DoesNotExist</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.cobertura"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.cobertura</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.diagnostico"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.diagnostico</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.edad"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.edad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.f_nac_pac"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.f_nac_pac</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.f_prescripcion"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.f_prescripcion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.medicamento_1"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.medicamento_1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.medicamento_2"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.medicamento_2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.medico"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.medico</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.nombre_paciente"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.nombre_paciente</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receta_medica.RecetaMedica.rec_med_id"><code class="docutils literal notranslate"><span class="pre">RecetaMedica.rec_med_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vista.html">vista module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MiProyecto</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">modulo receta_medica</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/receta_medica.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-receta_medica">
+<span id="modulo-receta-medica"></span><h1>modulo receta_medica<a class="headerlink" href="#module-receta_medica" title="Enlace permanente a este encabezado"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="receta_medica.BaseModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">receta_medica.</span></span><span class="sig-name descname"><span class="pre">BaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/receta_medica.html#BaseModel"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#receta_medica.BaseModel" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.BaseModel.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#receta_medica.BaseModel.DoesNotExist" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>alias de <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModelDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.BaseModel.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">BaseModel.id&gt;</span></em><a class="headerlink" href="#receta_medica.BaseModel.id" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">receta_medica.</span></span><span class="sig-name descname"><span class="pre">RecetaMedica</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/receta_medica.html#RecetaMedica"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#receta_medica.RecetaMedica" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#receta_medica.BaseModel" title="receta_medica.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Modelo ORM de Receta Médica.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>BaseModel</strong> – RecetaMedica hereda de BaseModel</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#receta_medica.RecetaMedica.DoesNotExist" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>alias de <code class="xref py py-class docutils literal notranslate"><span class="pre">RecetaMedicaDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.cobertura">
+<span class="sig-name descname"><span class="pre">cobertura</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">RecetaMedica.cobertura&gt;</span></em><a class="headerlink" href="#receta_medica.RecetaMedica.cobertura" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.diagnostico">
+<span class="sig-name descname"><span class="pre">diagnostico</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">RecetaMedica.diagnostico&gt;</span></em><a class="headerlink" href="#receta_medica.RecetaMedica.diagnostico" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.edad">
+<span class="sig-name descname"><span class="pre">edad</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">RecetaMedica.edad&gt;</span></em><a class="headerlink" href="#receta_medica.RecetaMedica.edad" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.f_nac_pac">
+<span class="sig-name descname"><span class="pre">f_nac_pac</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;DateField:</span> <span class="pre">RecetaMedica.f_nac_pac&gt;</span></em><a class="headerlink" href="#receta_medica.RecetaMedica.f_nac_pac" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.f_prescripcion">
+<span class="sig-name descname"><span class="pre">f_prescripcion</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;DateField:</span> <span class="pre">RecetaMedica.f_prescripcion&gt;</span></em><a class="headerlink" href="#receta_medica.RecetaMedica.f_prescripcion" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.medicamento_1">
+<span class="sig-name descname"><span class="pre">medicamento_1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">RecetaMedica.medicamento_1&gt;</span></em><a class="headerlink" href="#receta_medica.RecetaMedica.medicamento_1" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.medicamento_2">
+<span class="sig-name descname"><span class="pre">medicamento_2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">RecetaMedica.medicamento_2&gt;</span></em><a class="headerlink" href="#receta_medica.RecetaMedica.medicamento_2" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.medico">
+<span class="sig-name descname"><span class="pre">medico</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">RecetaMedica.medico&gt;</span></em><a class="headerlink" href="#receta_medica.RecetaMedica.medico" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.nombre_paciente">
+<span class="sig-name descname"><span class="pre">nombre_paciente</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">RecetaMedica.nombre_paciente&gt;</span></em><a class="headerlink" href="#receta_medica.RecetaMedica.nombre_paciente" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="receta_medica.RecetaMedica.rec_med_id">
+<span class="sig-name descname"><span class="pre">rec_med_id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">RecetaMedica.rec_med_id&gt;</span></em><a class="headerlink" href="#receta_medica.RecetaMedica.rec_med_id" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="crud_receta_medica.html" class="btn btn-neutral float-left" title="crud_receta_medica module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="vista.html" class="btn btn-neutral float-right" title="vista module" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Erica Borgeat.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
